@@ -7,11 +7,24 @@
 		gameBoard = document.querySelector('.puzzle-board'),
 		pzlPieces = document.querySelectorAll('.puzzle-pieces img'),
 		dropZones = document.querySelectorAll('.drop-zone');
+		//bottomLeft = document.querySelector('#bottomLeft'),
+		//bottomRight = document.querySelector('#bottomRight'),
+		//topRight = document.querySelector('#topRight'),
+		//topLeft = document.querySelector('#topLeft');
 
 	function changeBgImg() {
 		// The "this" keyword refers to the element that triggers this function (the nav button we click with the custom data attribute of bgref).
+
 		gameBoard.style.backgroundImage = `url(images/backGround${this.dataset.bgref}.jpg)`
 		// debugger;
+		changeImg();
+	}
+
+	function changeImg() {
+		pzlPieces.style.image = `url(images/bottomLeft${this.dataset.bgref}.jpg)`
+		pzlPieces.style.image = `url(images/bottomRight${this.dataset.bgref}.jpg)`
+		pzlPieces.style.image = `url(images/topRight${this.dataset.bgref}.jpg)`
+		pzlPieces.style.image = `url(images/topLeft${this.dataset.bgref}.jpg)`
 	}
 
 	function allowDrag() {
@@ -38,6 +51,7 @@
 
 	// Add event handling here -> loop through theThumbnails array and add event handling to each image. How do we want the user to interact with the elements that we collected earlier? Events are things like clicks, drags, double-clicks, keypresses, etc. all the ways that a user can interact with a mouse, a keyboard, etc.
 	theThumbnails.forEach(image => image.addEventListener('click', changeBgImg));
+	//pzlPieces.forEach(image => image.addEventListener(changeImg));
 	pzlPieces.forEach(piece => piece.addEventListener('dragstart', allowDrag));
 
 	// Set up the drop zone event handling.
