@@ -34,6 +34,8 @@
 
 		// Retrieve the dragged el by its ID and then put it inside the current drop zone.
 		this.appendChild(document.querySelector(`#${droppedElId}`));
+
+		if (document.querySelector.droppedElId) { return }
 	}
 
 	// Add event handling here -> loop through theThumbnails array and add event handling to each image. How do we want the user to interact with the elements that we collected earlier? Events are things like clicks, drags, double-clicks, keypresses, etc. all the ways that a user can interact with a mouse, a keyboard, etc.
